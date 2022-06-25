@@ -1,0 +1,11 @@
+# setup:
+#   config:
+#     NODE_ENV: production
+# build:
+#   docker:
+#     web: Dockerfile
+#   config:
+#     WORKDIR: code
+#     API_URL: https://........app
+# run:
+#   web: yarn start
