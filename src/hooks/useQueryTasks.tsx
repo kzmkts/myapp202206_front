@@ -8,7 +8,9 @@ const getTasks = async () => {
     const { data } = await axios.get<Task[]>(url)
     return data
   } catch (error) {
-    // console.error(`Error getting data from ${url}:`, error)
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(`Error getting data from ${url}:`, error)
+    }
     return []
   }
 }
