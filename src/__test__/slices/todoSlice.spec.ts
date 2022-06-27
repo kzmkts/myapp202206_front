@@ -3,7 +3,7 @@ import todoReducer, {
   toggleEditMode,
   setEditedTask,
   resetEditedTask,
-} from './todoSlice'
+} from '../../slices/todoSlice'
 
 describe('slices/todoSlice', () => {
   const initialState: TaskState = {

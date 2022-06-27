@@ -3,8 +3,8 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { useQueryTasks } from '../hooks/useQueryTasks'
-import { Task } from '../types/types'
+import { useQueryTasks } from '../../hooks/useQueryTasks'
+import { Task } from '../../types/types'
 
 interface Props {
   children: React.ReactNode
