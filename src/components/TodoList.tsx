@@ -11,6 +11,7 @@ import {
 import { FaRegCheckCircle } from 'react-icons/fa'
 import { GoPencil, GoTrashcan } from 'react-icons/go'
 import { TiPlus } from 'react-icons/ti'
+import { Task } from '../types/types'
 
 interface Props {
   showModal: VoidFunction
@@ -22,6 +23,11 @@ export const TodoList = memo(({ showModal }: Props) => {
   const { compleatTaskMutation, incompleatTaskMutation, deleteTaskMutation } =
     useMutateTask()
   const { data } = useQueryTasks()
+
+  const handlwDeleteTask = (task: Task) => {
+    const confirm = window.confirm('本当に削除してもいいですか？')
+    if (confirm) deleteTaskMutation.mutate(task.id)
+  }
 
   // console.log('render TaskList')
 
@@ -83,7 +89,7 @@ export const TodoList = memo(({ showModal }: Props) => {
                 </button>
                 <button
                   aria-label="削除"
-                  onClick={() => deleteTaskMutation.mutate(task.id)}
+                  onClick={() => handlwDeleteTask(task)}
                   disabled={deleteTaskMutation.isLoading}
                   className="inline-flex w-12 items-center justify-center rounded bg-slate-100 p-3 shadow hover:bg-slate-200 active:bg-slate-300 md:w-16"
                 >
