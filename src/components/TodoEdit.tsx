@@ -20,7 +20,6 @@ export const TodoEdit = memo(({ closeModal }: Props) => {
     }
     closeModal()
   }
-  // console.log('render TodoEdit')
 
   return (
     <form onSubmit={submitHandler}>

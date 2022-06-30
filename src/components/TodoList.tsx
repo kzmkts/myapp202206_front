@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import moment from 'moment'
 import { useQueryTasks } from '../hooks/useQueryTasks'
 import { useMutateTask } from '../hooks/useMutateTask'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
@@ -29,10 +30,9 @@ export const TodoList = memo(({ showModal }: Props) => {
     if (confirm) deleteTaskMutation.mutate(task.id)
   }
 
-  // console.log('render TaskList')
-
   return (
     <>
+      <p className="mb-1 text-sm">取得制限:10件</p>
       <div className="flex flex-col space-y-4">
         {data?.length === 0 && (
           <p className="text-center">タスクがありません</p>
@@ -62,15 +62,16 @@ export const TodoList = memo(({ showModal }: Props) => {
                   }`}
                 />
               </span>
-              <span
-                className={`tex-sm ml-2 break-all text-left md:text-xl ${
-                  task.done ? ' line-through' : ''
+              <div
+                className={`tex-sm ml-2 flex flex-col text-left md:text-xl ${
+                  task.done ? 'line-through decoration-primary' : ''
                 }`}
               >
-                {task.id}
-                {':'}
-                {task.title}
-              </span>
+                <span className="text-xs text-slate-400 md:text-sm">
+                  {moment(task.created_at).format('YYYY-MM-DD HH:mm')}
+                </span>
+                <span className="break-all">{task.title}</span>
+              </div>
             </button>
 
             {editMode && (
