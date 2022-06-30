@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAppDispatch } from '../app/hooks'
 import { toggleEditMode } from '../slices/todoSlice'
 import { useLocation } from 'react-router-dom'
+import { FaGithub } from 'react-icons/fa'
 
 interface Props {
   children: React.ReactNode
@@ -36,13 +37,22 @@ const Layout = ({ children }: Props) => {
             </Link>
           </div>
 
-          {location.pathname === '/todo/' && (
+          {location.pathname === '/todo/' ? (
             <button
-              className="hover:bg-primary/90 active:bg-primary/80 rounded bg-primary px-6 py-3 font-medium text-white shadow"
+              className="rounded bg-primary px-6 py-3 font-medium text-white shadow hover:bg-primary/90 active:bg-primary/80"
               onClick={() => dispatch(toggleEditMode())}
             >
               編集
             </button>
+          ) : (
+            <a
+              className="hover:opacity-80 active:opacity-50"
+              href="https://github.com/kzmkts/myapp202206_root"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="h-8 w-8" />
+            </a>
           )}
         </div>
       </nav>
