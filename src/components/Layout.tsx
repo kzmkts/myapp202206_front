@@ -14,13 +14,13 @@ const Layout = ({ children }: Props) => {
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center">
-      <nav className="fixed inset-x-0 top-0  z-10 flex h-20 items-center bg-white p-3 shadow">
+      <nav className="fixed inset-x-0 top-0  z-10 flex h-20 items-center bg-white shadow">
         <div className="mx-auto  flex w-full max-w-xl items-center justify-between">
-          <div className="inline-flex items-center">
+          <div className="inline-flex h-full items-center">
             <Link to={'/'}>
               <span
-                className={`p-2 font-bold ${
-                  location.pathname === '/' ? 'text-slate-400' : ''
+                className={`block p-2 font-bold ${
+                  location.pathname === '/' ? '' : 'text-slate-400'
                 }`}
               >
                 Home
@@ -29,7 +29,7 @@ const Layout = ({ children }: Props) => {
             <Link to={'/todo/'}>
               <span
                 className={`p-2 font-bold ${
-                  location.pathname === '/todo/' ? 'text-slate-400' : ''
+                  location.pathname === '/todo/' ? '' : 'text-slate-400'
                 }`}
               >
                 Todo
