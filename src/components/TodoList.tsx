@@ -32,7 +32,12 @@ export const TodoList = memo(({ showModal }: Props) => {
 
   return (
     <>
-      <p className="mb-1 text-sm">取得制限:10件</p>
+      <div className="mb-3">
+        <p className="mb-1 text-sm">取得制限:10件</p>
+        <p className="mb-1 text-sm">
+          サンプルアプリのためタスクは定期的に削除されます
+        </p>
+      </div>
       <div className="flex flex-col space-y-4">
         {data?.length === 0 && (
           <p className="text-center">タスクがありません</p>
